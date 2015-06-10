@@ -1,4 +1,6 @@
-﻿@model ProspectManager.Mvc.Models.Meetings.Meeting
+﻿@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@model ProspectManager.Mvc.Models.Meetings.Meeting
 
 @{
     ViewBag.Title = "Details";
@@ -40,7 +42,7 @@
     <ul>
         @foreach (var contact in Model.Contacts)
         {
-            <li>@contact.Name</li>
+            <li><a href="@contact.Id" >@contact.Name</a></li>
         }        
     </ul>
     @Html.ActionLink("Add contact", "Create", "MeetingsContacts", new { id = Model.Id }, null)

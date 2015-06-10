@@ -1,5 +1,7 @@
 ﻿@using System.Web.Mvc.Html
 @using System.Web.UI.WebControls
+@using ProspectManager.Mvc.Models.Contacts
+
 @model ProspectManager.Mvc.Models.Meetings.Meeting
 
 @{
@@ -42,7 +44,7 @@
     <ul>
         @foreach (var contact in Model.Contacts)
         {
-            <li><a href="@contact.Id" >@contact.Name</a></li>
+            <li> @Html.ActionLink(@contact.Name, "Details", "Contacts", new { id=contact.Id }, null)</li>
         }        
     </ul>
     @Html.ActionLink("Add contact", "Create", "MeetingsContacts", new { id = Model.Id }, null)
